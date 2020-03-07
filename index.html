@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<script type="text/javascript">
+function validateForm() {
+	var name = document.forms["myForm"]["fname"].value;
+		if (name == "") {
+		alert("Name must be filled out");
+		return false;
+		}
+	var pass1 = document.forms["myForm"]["pass1"].value;
+	var pass2 = document.forms["myForm"]["pass2"].value;
+		if (pass1 != pass2){
+			document.getElementById("nameField").innerHTML="    Please enter same password";
+			return false;
+		}
+}
+</script>
+<style >
+	
+
+</style>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: Muli;" bgcolor="#2f2023" text="white" onsubmit="return validateForm()">
+
+<!--<div ng-app="">
+  <p>Name : <input type="text" ng-model="name"></p>
+  <h1>Hello {{name}}</h1>
+</div> -->
+
+<form action="daldo.php" method="POST" name="myForm">
+	
+<div ng-app="">
+	<h1>Hello {{fname}}</h1>
+	<label for="fname">Enter Name:</label>
+	<input type="text" name="fname" ng-model="fname" id="name" style="margin-left: 29px;" autofocus>
+	<p>Enter Password: <input name="pass1" type="password" required><label id="nameField"></label></p>
+	<p>Re-Enter Password: <input name="pass2" type="password" required></p>
+</div>
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
